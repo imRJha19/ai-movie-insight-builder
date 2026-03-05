@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background-start: #050912;
+  --background-end: #0a1222;
+  --surface: rgba(15, 23, 42, 0.52);
+  --surface-strong: rgba(15, 23, 42, 0.78);
+  --text-primary: #f8fbff;
+  --text-muted: #9da9bf;
+  --accent: #6ee7ff;
+  --accent-hover: #9ff7ff;
+  --ring: rgba(110, 231, 255, 0.35);
+  --shadow-soft: 0 16px 42px rgba(1, 8, 19, 0.5);
+  --shadow-card: 0 8px 24px rgba(5, 13, 30, 0.4);
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+}
+
+@theme inline {
+  --color-background: var(--background-start);
+  --color-foreground: var(--text-primary);
+  --font-sans: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(110, 231, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 80% 0%, rgba(147, 197, 253, 0.09), transparent 30%),
+    linear-gradient(180deg, var(--background-start) 0%, var(--background-end) 100%);
+  color: var(--text-primary);
+  font-family: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Gill Sans Nova", "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+}
+
+::selection {
+  background: rgba(110, 231, 255, 0.28);
+  color: #e5fdff;
+}
+
+a {
+  color: inherit;
+}
+
+.app-grid-overlay {
+  position: relative;
+}
+
+.app-grid-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+}
+
+.soft-divider {
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.float-in {
+  animation: float-in 0.5s ease-out;
+}
+
+@keyframes float-in {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
